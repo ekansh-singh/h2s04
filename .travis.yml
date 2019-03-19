@@ -7,15 +7,11 @@ branches:
     - master
 install:
   - npm install -g @vue/cli
+  - npm install -g firebase-tools
   - npm install
 before_script:
   - npm run test:unit
 script:
   - npm run build
-deploy:
-  provider: pages
-  skip_cleanup: true
-  local_dir: dist/
-  github_token: $GITHUB_TOKEN
-  on:
-    branch: stage
+after_success:
+  - firebase deploy --token $FIREBASE_TOKEN_PLAIN
