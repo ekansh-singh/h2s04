@@ -5,6 +5,7 @@ node_js:
 branches:
   only:
     - master
+    - stage
 install:
   - npm install -g @vue/cli
   - npm install
@@ -19,4 +20,3 @@ deploy:
   github_token: $GITHUB_TOKEN
   on:
     branch: stage
-    
