@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ekansh-singh/h2s04.svg?branch=master)](https://travis-ci.org/ekansh-singh/h2s04)
+
 # h2s04
 
 ## Project setup
