@@ -34,8 +34,7 @@ class Deployer:
         print("Travis pull request branch", os.environ['TRAVIS_PULL_REQUEST_BRANCH'])
         headers = {'Authorization': 'token ' + self._github_token}
         req = requests.get('https://api.github.com/repos/ekansh-singh/h2s04/pulls/{}'.format(self._pull_request)).json()
-        print("Head ->", req['head']['ref'])
-        print("Base ->", req['base']['ref'])
+       
         # self.domain = 'http://{}-bf-demo.surge.sh'.format(self._pull_request)
         # self.deploy_surge()
         # self._post_comment()
