@@ -3,6 +3,7 @@ python:
   - "3.5"
 install:
   - echo "Yay install"
+  - pip install requests
 
 script:
   - echo "Yay script"
