@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import os
-import requests
+# import requests
 
 
 class Deployer:
@@ -52,7 +52,7 @@ class Deployer:
         headers = {'Authorization': 'token {}'.format(self._github_token)}
         data = {'body': 'See the website here: {}'.format(self.domain)}
         print('Posting comment to: {}'.format(url))
-        requests.post(url, headers=headers, json=data)
+        # requests.post(url, headers=headers, json=data)
 
 
 if __name__ == '__main__':
