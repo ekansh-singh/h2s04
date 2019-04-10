@@ -18,7 +18,7 @@ deploy:
   on:
     # TODO need to be environment dependent
     all_branches: true
-    condition: $TRAVIS_BRANCH == "master" || $TRAVIS_BRANCH == "staging"
+    condition: $TRAVIS_BRANCH == "master" || $TRAVIS_BRANCH == "stage"
 
 
 
