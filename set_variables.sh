@@ -1,9 +1,14 @@
 #!/bin/bash
 
-if [ "$TRAVIS_BRANCH" = "master" ] || [ "$TRAVIS_BRANCH" = "staging" ]; then
-  echo "yay on master or staging "
+if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+  echo "Not a pull request"
+  if [ "$TRAVIS_BRANCH" = "master" ] || [ "$TRAVIS_BRANCH" = "staging" ]; then
+    echo "yay on master or staging "
+  else
+    echo "oops not on master or staging"
+  fi
 else
-  echo "oops not on master or staging"
+  echo "It is a PR!!"
 fi
 # Set default staging values which will be used by feature branches and pull request builds (As they are not deployed)
 
