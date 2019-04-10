@@ -39,11 +39,6 @@ case "$BRANCH" in
 esac
 
 
-
-
-
-
-
 # Set default staging values which will be used by feature branches and pull request builds (As they are not deployed)
 
 # export IMAGE_NAME=quarticai/contexalyze_prod;
