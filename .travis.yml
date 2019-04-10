@@ -8,6 +8,8 @@ script:
   - bash set_variables.sh
 after_success:
   - printenv
+  - echo "printing image name"
+  - echo "${IMAGE_NAME}"
 
 
 
