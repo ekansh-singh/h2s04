@@ -1,12 +1,35 @@
+dist: trusty
+sudo: required
 language: python
 python:
-  - "3.5"
-install:
-  - echo "Yay install"
-  - pip install requests
+- '3.6'
 
 script:
-  - echo "Yay script"
+  - bash set_variables.sh
 after_success:
-  - chmod ugo+x ./deploy.py
-  - ./deploy.py
+  - printenv
+
+
+
+
+
+
+
+
+
+
+
+
+
+# language: python
+# python:
+#   - "3.5"
+# install:
+#   - echo "Yay install"
+#   - pip install requests
+
+# script:
+#   - echo "Yay script"
+# after_success:
+#   - chmod ugo+x ./deploy.py
+#   - ./deploy.py
