@@ -1,6 +1,15 @@
 #!/bin/bash
-export IMAGE_NAME=quarticai/contexalyze_prod;
-export DEFAULT_IMAGE="quarticai/contexalyze_prod:base_latest";
-export ENV="production";
 
+if [ "$TRAVIS_BRANCH" = "master" ]; then
+  echo "yay on master "
+else
+  echo "oops not on master"
+fi
+# Set default staging values which will be used by feature branches and pull request builds (As they are not deployed)
+
+export IMAGE_NAME=quarticai/contexalyze_prod;
+export DEFAULT_IMAGE="quarticai/contexalyze_stg:base_latest";
+export ENV="staging";
+
+# if current build branch belongs to [master, staging, pov, swiftwater] set respective values to be used by build and deploy
 echo "inside script"
