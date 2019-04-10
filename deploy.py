@@ -10,7 +10,7 @@ class Deployer:
         self._pull_request = os.environ['TRAVIS_PULL_REQUEST']
         self._branch = os.environ['TRAVIS_BRANCH']
         self._github_token = os.environ['GITHUB_TOKEN']
-        self.domain = None
+        # self.domain = None
 
     def deploy(self):
         """Main function of the script."""
@@ -24,7 +24,7 @@ class Deployer:
         print('Deploying branch: {}'.format(self._branch))
         if self._branch != 'master':
             branch = self._branch.replace('/', '-')
-            self.domain = 'http://{}-bf-demo.surge.sh'.format(branch)
+            # self.domain = 'http://{}-bf-demo.surge.sh'.format(branch)
         # self.deploy_surge()
 
     def deploy_pull_request(self):
@@ -32,10 +32,6 @@ class Deployer:
         print('Deploying pull request: {}'.format(self._pull_request))
         print("Travis Branch ", self._branch)
         print("Travis pull request branch", os.environ['TRAVIS_PULL_REQUEST_BRANCH'])
-        headers = {'Authorization': 'token ' + self._github_token}
-        req = requests.get('https://api.github.com/repos/ekansh-singh/h2s04/pulls/{}'.format(self._pull_request)).json()
-        print("Head ->", req['head']['ref'])
-        print("Base ->", req['base']['ref'])
         # self.domain = 'http://{}-bf-demo.surge.sh'.format(self._pull_request)
         # self.deploy_surge()
         # self._post_comment()
