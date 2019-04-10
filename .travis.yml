@@ -17,6 +17,7 @@ deploy:
   # script: docker push "${IMAGE_NAME}:latest" && docker push "${IMAGE_NAME}:${version}"
   on:
     # TODO need to be environment dependent
+    all_branches: true
     condition: $TRAVIS_BRANCH == "master" || $TRAVIS_BRANCH == "staging"
 
 
