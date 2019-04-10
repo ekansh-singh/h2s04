@@ -13,3 +13,4 @@ export ENV="staging";
 
 # if current build branch belongs to [master, staging, pov, swiftwater] set respective values to be used by build and deploy
 echo "inside script"
+echo "$TRAVIS_BRANCH"
