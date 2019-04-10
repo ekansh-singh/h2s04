@@ -2,24 +2,21 @@
 
 if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
   # Settings for not a Pull Request
-  if [ "$TRAVIS_BRANCH" = "master" ] || [ "$TRAVIS_BRANCH" = "staging" ]; then
+  # if [ "$TRAVIS_BRANCH" = "master" ] || [ "$TRAVIS_BRANCH" = "staging" ]; then
     # Settings for 4 main branches
     # echo "yay on master or staging "
     case "$TRAVIS_BRANCH" in
     'master')
       echo "Inside master branch"
     ;;
-    'staging')
-      echo "Inside staging branch"
-    ;;
-    'restart')
-      echo "restart"
+    *)
+      echo "Inside Default case branch"
     ;;
     esac
-  else
+  # else
     # Settings for other branches
-    echo "Not a PR but different branch"
-  fi
+    # echo "Not a PR but different branch"
+  # fi
 else
   # Settings for Pull Request
   echo "It is a PR!!"
