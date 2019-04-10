@@ -2,10 +2,10 @@
 
 if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
   echo "Not a pull request"
-  if [ "$TRAVIS_BRANCH" = "master" ] || [ "$TRAVIS_BRANCH" = "staging" ]; then
+  if [ "$TRAVIS_BRANCH" = "master" ] || [ "$TRAVIS_BRANCH" = "stage" ]; then
     echo "yay on master or staging "
   else
-    echo "oops not on master or staging"
+    echo "Not a PR but different branch"
   fi
 else
   echo "It is a PR!!"
