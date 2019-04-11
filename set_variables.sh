@@ -15,7 +15,7 @@
 # fi
 IFS='_' read -ra BUILD_BRANCH <<< "$TRAVIS_BRANCH"
 BRANCH="$(echo $BUILD_BRANCH | tr '[:upper:]' '[:lower:]')"
-echo "$BRANCH"
+
 case "$BRANCH" in
 'master')
   echo "Inside master branch"
@@ -23,7 +23,7 @@ case "$BRANCH" in
   export DEFAULT_IMAGE="quarticai/contexalyze_prod:base_latest";
   export ENV="production";
 ;;
-'PLAT-861')
+'plat-861')
   echo "Inside PLAT-861 branch"
   export IMAGE_NAME=quarticai/contexalyze_pov_prod;
   export DEFAULT_IMAGE="quarticai/contexalyze_prod:base_latest";
