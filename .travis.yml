@@ -3,43 +3,36 @@ sudo: required
 language: python
 python:
 - '3.6'
+services:
+- docker
+
+before_install:
+  - echo $PWD
+  - ls
+  - source set_variables.sh
+
+
+install:
+  - echo "yay install phase"
+  - echo $PWD
+# - pip3.6 install -r /home/travis/build/Quarticai/ContexAlyze/requirements.txt
 
 script:
-  - source set_variables.sh
-after_success:
-  - printenv
-  - echo "printing image name"
-  - echo ${IMAGE_NAME}
+# - docker build --pull --cache-from "${IMAGE_NAME}" --tag "${IMAGE_NAME}" --build-arg DEFAULT_IMAGE="quarticai/contexalyze_stg:base_latest" --build-arg ENV="staging" --build-arg USER_NAME="${USER_NAME}" --build-arg GIT_TOKEN="${GIT_TOKEN}" .
+- echo "test is awesome man"
+
+# after_script:
+# - docker images
+
+# before_deploy:
+# - docker tag "${IMAGE_NAME}" "${IMAGE_NAME}:latest"
+# - docker tag "${IMAGE_NAME}" "${IMAGE_NAME}:${version}"
 
 deploy:
   provider: script
-  script: echo ${IMAGE_NAME} && echo "Inside deploy stage"
   # script: docker push "${IMAGE_NAME}:latest" && docker push "${IMAGE_NAME}:${version}"
+  script: echo "yay i was deployed!!"
   on:
-    # TODO need to be environment dependent
     all_branches: true
-    condition: $TRAVIS_BRANCH == "master" || $TRAVIS_BRANCH == "stage"
-
-
-
-
-
-
-
-
-
-
-
-
-# language: python
-# python:
-#   - "3.5"
-# install:
-#   - echo "Yay install"
-#   - pip install requests
-
-# script:
-#   - echo "Yay script"
-# after_success:
-#   - chmod ugo+x ./deploy.py
-#   - ./deploy.py
+    # condition: $TRAVIS_BRANCH == "master" || $TRAVIS_BRANCH == "staging" || $TRAVIS_BRANCH == "PLAT-861" || $TRAVIS_BRANCH == "swiftwater-ui"
+    condition: $TRAVIS_BRANCH =~ ^master|staging|PLAT-861|swiftwater-ui$
