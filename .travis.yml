@@ -11,6 +11,14 @@ after_success:
   - echo "printing image name"
   - echo ${IMAGE_NAME}
 
+deploy:
+  provider: script
+  script: echo ${IMAGE_NAME} && echo "Inside deploy stage"
+  # script: docker push "${IMAGE_NAME}:latest" && docker push "${IMAGE_NAME}:${version}"
+  on:
+    # TODO need to be environment dependent
+    all_branches: true
+    condition: $TRAVIS_BRANCH == "master" || $TRAVIS_BRANCH == "stage"
 
 
 
